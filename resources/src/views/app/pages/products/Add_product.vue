@@ -252,6 +252,7 @@
                           aria-describedby="OrderTax-feedback"
                           v-model="product.TaxNet"
                           type="number"
+                          step="any"
                           class="form-control"
                         >
                         <div class="input-group-append">

@@ -139,4 +139,6 @@ Route::post('/update/lastStep', [
     'as' => 'update_lastStep', 'uses' => 'UpdateController@lastStep',
 ]);
 
-
+route::get('/test', function(){
+    return 'test';
+});

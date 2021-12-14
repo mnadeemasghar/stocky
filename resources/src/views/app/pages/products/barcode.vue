@@ -66,6 +66,7 @@
                       class="form-control w-50 h-25"
                       id="qte"
                       type="number"
+                      step="any"
                       name="qte"
                     >
                   </td>

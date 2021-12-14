@@ -691,6 +691,15 @@
           </li>
           <li
             class="nav-item"
+            v-if="currentUserPermissions && currentUserPermissions.includes('Reports_sales')"
+          >
+            <router-link tag="a" class to="/app/reports/items_report">
+              <i class="nav-icon i-Line-Chart"></i>
+              <span class="item-name">Items Report</span>
+            </router-link>
+          </li>
+          <li
+            class="nav-item"
             v-if="currentUserPermissions && currentUserPermissions.includes('Reports_purchase')"
           >
             <router-link tag="a" class to="/app/reports/purchase_report">
