@@ -298,7 +298,6 @@
         </b-form>
       </b-modal>
     </div>
-  </div>
 </template>
 
 
