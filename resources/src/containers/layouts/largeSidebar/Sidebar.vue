@@ -24,6 +24,8 @@
               <span class="nav-text">{{ $t("dashboard") }}</span>
             </router-link>
           </li>
+
+          <!-- Products -->
           <li
             v-show="currentUserPermissions 
             && (currentUserPermissions.includes('products_add')
@@ -41,67 +43,8 @@
             </a>
             <div class="triangle"></div>
           </li>
-          <li
-            v-show="currentUserPermissions 
-              && (currentUserPermissions.includes('adjustment_view')
-              || currentUserPermissions.includes('adjustment_add'))"
-            @mouseenter="toggleSubMenu"
-            class="nav-item"
-            :class="{ active: selectedParentMenu == 'adjustments' }"
-            data-item="adjustments"
-            :data-submenu="true"
-          >
-            <a class="nav-item-hold" href="#">
-              <i class="nav-icon i-Edit-Map"></i>
-              <span class="nav-text">{{$t('StockAdjustement')}}</span>
-            </a>
-            <div class="triangle"></div>
-          </li>
-          <li
-            v-show="currentUserPermissions && (currentUserPermissions.includes('transfer_view')
-                     || currentUserPermissions.includes('transfer_add'))"
-            @mouseenter="toggleSubMenu"
-            class="nav-item"
-            :class="{ active: selectedParentMenu == 'transfers' }"
-            data-item="transfers"
-            :data-submenu="true"
-          >
-            <a class="nav-item-hold" href="#">
-              <i class="nav-icon i-Back"></i>
-              <span class="nav-text">{{$t('StockTransfers')}}</span>
-            </a>
-            <div class="triangle"></div>
-          </li>
-          <li
-            v-show="currentUserPermissions && (currentUserPermissions.includes('expense_view')
-              || currentUserPermissions.includes('expense_add'))"
-            @mouseenter="toggleSubMenu"
-            class="nav-item"
-            :class="{ active: selectedParentMenu == 'expenses' }"
-            data-item="expenses"
-            :data-submenu="true"
-          >
-            <a class="nav-item-hold" href="#">
-              <i class="nav-icon i-Wallet"></i>
-              <span class="nav-text">{{$t('Expenses')}}</span>
-            </a>
-            <div class="triangle"></div>
-          </li>
-          <li
-            v-show="currentUserPermissions && (currentUserPermissions.includes('Quotations_view') 
-                      || currentUserPermissions.includes('Quotations_add'))"
-            @mouseenter="toggleSubMenu"
-            class="nav-item"
-            :class="{ active: selectedParentMenu == 'quotations' }"
-            data-item="quotations"
-            :data-submenu="true"
-          >
-            <a class="nav-item-hold" href="#">
-              <i class="nav-icon i-Checkout-Basket"></i>
-              <span class="nav-text">{{$t('Quotations')}}</span>
-            </a>
-            <div class="triangle"></div>
-          </li>
+    
+          <!-- Purchases -->
           <li
             v-show="currentUserPermissions && (currentUserPermissions.includes('Purchases_view') 
                         || currentUserPermissions.includes('Purchases_add'))"
@@ -117,6 +60,8 @@
             </a>
             <div class="triangle"></div>
           </li>
+
+          <!-- Sales -->
           <li
             v-show="currentUserPermissions && (currentUserPermissions.includes('Sales_view') 
                         || currentUserPermissions.includes('Sales_add'))"
@@ -132,6 +77,11 @@
             </a>
             <div class="triangle"></div>
           </li>
+
+          <!-- Job Card -->
+          <!-- Claim Form -->
+
+          <!-- Sales Return -->
           <li
             v-show="currentUserPermissions && (currentUserPermissions.includes('Sale_Returns_view') 
                         || currentUserPermissions.includes('Sale_Returns_add'))"
@@ -147,6 +97,8 @@
             </a>
             <div class="triangle"></div>
           </li>
+
+          <!-- Purchase Return -->
           <li
             v-show="currentUserPermissions && (currentUserPermissions.includes('Purchase_Returns_view') 
                         || currentUserPermissions.includes('Purchase_Returns_add'))"
@@ -162,6 +114,42 @@
             </a>
             <div class="triangle"></div>
           </li>
+
+          <!-- Expenses -->
+          <li
+            v-show="currentUserPermissions && (currentUserPermissions.includes('expense_view')
+              || currentUserPermissions.includes('expense_add'))"
+            @mouseenter="toggleSubMenu"
+            class="nav-item"
+            :class="{ active: selectedParentMenu == 'expenses' }"
+            data-item="expenses"
+            :data-submenu="true"
+          >
+            <a class="nav-item-hold" href="#">
+              <i class="nav-icon i-Wallet"></i>
+              <span class="nav-text">{{$t('Expenses')}}</span>
+            </a>
+            <div class="triangle"></div>
+          </li>
+
+          <!-- Quotations -->
+          <li
+            v-show="currentUserPermissions && (currentUserPermissions.includes('Quotations_view') 
+                      || currentUserPermissions.includes('Quotations_add'))"
+            @mouseenter="toggleSubMenu"
+            class="nav-item"
+            :class="{ active: selectedParentMenu == 'quotations' }"
+            data-item="quotations"
+            :data-submenu="true"
+          >
+            <a class="nav-item-hold" href="#">
+              <i class="nav-icon i-Checkout-Basket"></i>
+              <span class="nav-text">{{$t('Quotations')}}</span>
+            </a>
+            <div class="triangle"></div>
+          </li>
+
+          <!-- People -->
           <li
             v-show="currentUserPermissions && (currentUserPermissions.includes('Customers_view') 
                         ||currentUserPermissions.includes('Suppliers_view')
@@ -179,6 +167,7 @@
             <div class="triangle"></div>
           </li>
 
+          <!-- Settings -->
           <li
             v-show="currentUserPermissions && (currentUserPermissions.includes('setting_system') 
                         || currentUserPermissions.includes('warehouse') || currentUserPermissions.includes('brand')
@@ -198,6 +187,7 @@
             <div class="triangle"></div>
           </li>
 
+          <!-- Reports -->
           <li
             v-show="currentUserPermissions && 
                      (currentUserPermissions.includes('Reports_payments_Sales') 
@@ -222,7 +212,44 @@
               <span class="nav-text">{{$t('Reports')}}</span>
             </a>
             <div class="triangle"></div>
-          </li>        
+          </li> 
+
+          <!-- Stock Adjustment -->
+          <!-- <li
+            v-show="currentUserPermissions 
+              && (currentUserPermissions.includes('adjustment_view')
+              || currentUserPermissions.includes('adjustment_add'))"
+            @mouseenter="toggleSubMenu"
+            class="nav-item"
+            :class="{ active: selectedParentMenu == 'adjustments' }"
+            data-item="adjustments"
+            :data-submenu="true"
+          >
+            <a class="nav-item-hold" href="#">
+              <i class="nav-icon i-Edit-Map"></i>
+              <span class="nav-text">{{$t('StockAdjustement')}}</span>
+            </a>
+            <div class="triangle"></div>
+          </li> -->
+
+          <!-- Transfers -->
+          <!-- <li
+            v-show="currentUserPermissions && (currentUserPermissions.includes('transfer_view')
+                     || currentUserPermissions.includes('transfer_add'))"
+            @mouseenter="toggleSubMenu"
+            class="nav-item"
+            :class="{ active: selectedParentMenu == 'transfers' }"
+            data-item="transfers"
+            :data-submenu="true"
+          >
+            <a class="nav-item-hold" href="#">
+              <i class="nav-icon i-Back"></i>
+              <span class="nav-text">{{$t('StockTransfers')}}</span>
+            </a>
+            <div class="triangle"></div>
+          </li> -->
+
+       
         </ul>
       </div>
     </vue-perfect-scrollbar>
