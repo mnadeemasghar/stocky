@@ -79,6 +79,21 @@
           </li>
 
           <!-- Job Card -->
+          <li
+            v-show="currentUserPermissions && (currentUserPermissions.includes('Sales_view') 
+                        || currentUserPermissions.includes('Sales_add'))"
+            class="nav-item"
+            @mouseenter="toggleSubMenu"
+            :class="{ active: selectedParentMenu == 'jobCard' }"
+            data-item="jobCard"
+            :data-submenu="true"
+          >
+            <a class="nav-item-hold" href="#">
+              <i class="nav-icon i-Full-Cart"></i>
+              <span class="nav-text">{{$t('JobCard')}}</span>
+            </a>
+            <div class="triangle"></div>
+          </li>
           <!-- Claim Form -->
 
           <!-- Sales Return -->
@@ -260,6 +275,8 @@
       class="sidebar-left-secondary ps rtl-ps-none"
     >
       <div ref="sidebarChild">
+
+        <!-- products -->
         <ul
           class="childNav d-none"
           data-parent="products"
@@ -294,6 +311,7 @@
           </li>
         </ul>
 
+        <!-- adjustments -->
         <ul
           class="childNav d-none"
           data-parent="adjustments"
@@ -319,6 +337,7 @@
           </li>
         </ul>
 
+        <!-- transfers -->
         <ul
           class="childNav d-none"
           data-parent="transfers"
@@ -344,6 +363,7 @@
           </li>
         </ul>
 
+        <!-- expenses -->
         <ul
           class="childNav d-none"
           data-parent="expenses"
@@ -378,6 +398,7 @@
           </li>
         </ul>
 
+        <!-- quotations -->
         <ul
           class="childNav d-none"
           data-parent="quotations"
@@ -403,6 +424,7 @@
           </li>
         </ul>
 
+        <!-- purchases -->
         <ul
           class="childNav d-none"
           data-parent="purchases"
@@ -428,6 +450,7 @@
           </li>
         </ul>
 
+        <!-- sales -->
         <ul
           class="childNav d-none"
           data-parent="sales"
@@ -452,7 +475,38 @@
             </router-link>
           </li>
         </ul>
+        
+        <!-- jobCard -->
+        <ul
+          class="childNav d-none"
+          data-parent="jobCard"
+          :class="{ 'd-block': selectedParentMenu == 'jobCard' }"
+        >
+          <!-- create route for add job card -->
+          <li
+            class="nav-item"
+            v-if="currentUserPermissions && currentUserPermissions.includes('Sales_add')"
+          >
 
+            <router-link tag="a" class to="/app/sales/store">
+              <i class="nav-icon i-Add-File"></i>
+              <span class="item-name">{{$t('AddJobCard')}}</span>
+            </router-link>
+          </li>
+
+          <!-- create route for view job card list -->
+          <li
+            class="nav-item"
+            v-if="currentUserPermissions && currentUserPermissions.includes('Sales_view')"
+          >
+            <router-link tag="a" class to="/app/sales/list">
+              <i class="nav-icon i-Files"></i>
+              <span class="item-name">{{$t('ListJobCard')}}</span>
+            </router-link>
+          </li>
+        </ul>
+
+        <!-- sale_return -->
         <ul
           class="childNav d-none"
           data-parent="sale_return"
@@ -478,6 +532,7 @@
           </li>
         </ul>
 
+        <!-- purchase_return -->
         <ul
           class="childNav d-none"
           data-parent="purchase_return"
@@ -503,6 +558,7 @@
           </li>
         </ul>
 
+        <!-- people -->
         <ul
           class="childNav d-none"
           data-parent="People"
@@ -537,6 +593,7 @@
           </li>
         </ul>
 
+        <!-- settings -->
         <ul
           class="childNav d-none"
           data-parent="settings"
@@ -626,6 +683,7 @@
           </li> -->
         </ul>
 
+        <!-- reports -->
         <ul
           class="childNav d-none"
           data-parent="reports"
