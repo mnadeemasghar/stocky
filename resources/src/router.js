@@ -259,7 +259,8 @@ const routes = [
                         name: "store_sale",
                         path: "store",
                         component: () =>
-                            import(/* webpackChunkName: "store_sale" */"./views/app/pages/sales/create_sale")
+                            import(/* webpackChunkName: "store_sale" */
+                            "./views/app/pages/sales/create_sale")
                     },
                     {
                         name: "edit_sale",
@@ -272,6 +273,22 @@ const routes = [
                         path: "detail/:id",
                         component: () =>
                             import(/* webpackChunkName: "detail_sale" */"./views/app/pages/sales/detail_sale")
+                    }
+                ]
+            },
+
+            //Job Card
+            {
+                path: "/app/job_card",
+                component: () => import(/* webpackChunkName: "sales" */ "./views/app/pages/sales"),
+                redirect: "/app/job_card/store",
+                children: [
+                    {
+                        name: "store_job_card",
+                        path: "store",
+                        component: () =>
+                            import(/* webpackChunkName: "store_job_card" */
+                            "./views/app/pages/job_card/create_job_card")
                     }
                 ]
             },

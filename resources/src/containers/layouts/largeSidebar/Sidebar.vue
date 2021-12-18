@@ -488,7 +488,7 @@
             v-if="currentUserPermissions && currentUserPermissions.includes('Sales_add')"
           >
 
-            <router-link tag="a" class to="/app/sales/store">
+            <router-link tag="a" class to="/app/job_card/store">
               <i class="nav-icon i-Add-File"></i>
               <span class="item-name">{{$t('AddJobCard')}}</span>
             </router-link>

@@ -72,6 +72,7 @@
     "/js/bundle/settings.js": "/js/bundle/settings.js",
     "/js/bundle/store_adjustment.js": "/js/bundle/store_adjustment.js",
     "/js/bundle/store_expense.js": "/js/bundle/store_expense.js",
+    "/js/bundle/store_job_card.js": "/js/bundle/store_job_card.js",
     "/js/bundle/store_permission.js": "/js/bundle/store_permission.js",
     "/js/bundle/store_product.js": "/js/bundle/store_product.js",
     "/js/bundle/store_purchase.js": "/js/bundle/store_purchase.js",
