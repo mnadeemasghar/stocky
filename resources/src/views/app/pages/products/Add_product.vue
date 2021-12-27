@@ -356,7 +356,8 @@
             </b-card>
           </b-col>
           <b-col md="12" class="mt-3">
-             <b-button variant="primary" type="submit" :disabled="SubmitProcessing">{{$t('submit')}}</b-button>
+             <!-- <b-button variant="primary" type="submit" :disabled="SubmitProcessing">{{$t('submit')}}</b-button> -->
+             <b-button variant="primary" type="submit" :disabled="SubmitProcessing">Submit and Add New</b-button>
               <div v-once class="typo__p" v-if="SubmitProcessing">
                 <div class="spinner sm spinner-primary mt-3"></div>
               </div>
@@ -545,7 +546,8 @@ export default {
           // Complete the animation of theprogress bar.
           NProgress.done();
           self.SubmitProcessing = false;
-          this.$router.push({ name: "index_products" });
+          // this.$router.push({ name: "index_products" });
+          this.$router.push({ name: "store_product" });
           this.makeToast(
             "success",
             this.$t("Successfully_Created"),

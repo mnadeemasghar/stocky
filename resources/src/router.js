@@ -25,6 +25,13 @@ const routes = [
                 component: () => import(/* webpackChunkName: "dashboard" */ "./views/app/dashboard/dashboard")
             },
 
+            //test
+            {
+                path: "/app/test",
+                name: "test",
+                component: () => import(/* webpackChunkName: "dashboard" */ "./views/app/pages/job_card/create_job_card")
+            },
+
             //Products
             {
                 path: "/app/products",
@@ -38,8 +45,8 @@ const routes = [
                             import(/* webpackChunkName: "index_products" */"./views/app/pages/products/index_products")
                     },
                     {
-                        path: "store",
                         name: "store_product",
+                        path: "store",
                         component: () =>
                             import(/* webpackChunkName: "store_product" */"./views/app/pages/products/Add_product")
                     },
